@@ -12,19 +12,27 @@ function randPassword(length, includeSpecial) {
 function getParams() {
   return {
     length: parseInt(document.getElementById('length').value),
-    special: document.getElementById('special').checked
+    special: document.getElementById('special').checked,
+    directcopy: document.getElementById('directcopy').checked
   }
 }
 
 function loadOptions() {
   return browser.storage.local.get({
     length: 14,
-    special: true
+    special: true,
+    directcopy: false
   });
 }
 
 function saveOptions(options) {
   return browser.storage.local.set(options);
+}
+
+function copypasstoclippboard() {
+  var copyText = document.getElementById('pw');
+  copyText.select();
+  document.execCommand('copy');
 }
 
 document.getElementById('new').addEventListener('click', (ev) => {
@@ -36,13 +44,22 @@ document.getElementById('new').addEventListener('click', (ev) => {
 
 document.getElementById('copy').addEventListener('click', (ev) => {
   ev.preventDefault();
-  var copyText = document.getElementById('pw');
-  copyText.select();
-  document.execCommand('copy');
+  copypasstoclippboard();
+});
+
+document.getElementById('directcopy').addEventListener('change', (ev) => {
+  console.log(getParams());
+  saveOptions(getParams());
 });
 
 loadOptions().then((options) => {
+  console.log(options);
   document.getElementById('length').value = options.length;
   document.getElementById('special').checked = options.special;
+  document.getElementById('directcopy').checked = options.directcopy;
   document.getElementById('pw').value = randPassword(getParams().length, getParams().special);
+
+  if (options.directcopy) {
+    copypasstoclippboard();
+  }
 });

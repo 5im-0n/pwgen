@@ -8,16 +8,23 @@
 <body>
   <form>
     <div>
-      <label for"length">length</label> <input type="number" id="length" value="14" min="0">
+      <label for"length">length</label>
+      <input type="number" id="length" value="14" min="0" name="length">
     </div>
     <div>
-      <label for"special">include special chars</label> <input type="checkbox" id="special" checked="checked">
+      <label for"special">include special chars</label>
+      <input type="checkbox" id="special" checked="checked" name="special">
     </div>
     <div>
-      <label for"pw">your password</label> <input type="text" id="pw">
+      <label for"pw">your password</label>
+      <input type="text" id="pw" name="pw">
     </div>
     <div>
       <button id="copy">copy to clipboard</button><button id="new">give me an other one</button>
+    </div>
+    <div>
+      <label for"directcopy">direct copy</label>
+      <input type="checkbox" id="directcopy" name="directcopy" title="next time when i click the button, copy the new password immediately to the clipboard">
     </div>
   </form>
   <script src="pwgen.js"></script>
