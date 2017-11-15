@@ -2,7 +2,7 @@
   "description": "Just a toolbar button that generates a password and copies it to your clipboard.",
   "manifest_version": 2,
   "name": "pwgen",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "homepage_url": "http://www.google.com",
   "icons": {
     "48": "icons/lock-48.png"
