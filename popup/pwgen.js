@@ -48,12 +48,10 @@ document.getElementById('copy').addEventListener('click', (ev) => {
 });
 
 document.getElementById('directcopy').addEventListener('change', (ev) => {
-  console.log(getParams());
   saveOptions(getParams());
 });
 
 loadOptions().then((options) => {
-  console.log(options);
   document.getElementById('length').value = options.length;
   document.getElementById('special').checked = options.special;
   document.getElementById('directcopy').checked = options.directcopy;
