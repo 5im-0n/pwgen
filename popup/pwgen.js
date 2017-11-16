@@ -1,7 +1,7 @@
 function randPassword(length, includeSpecial) {
   let pwdChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
   if (includeSpecial) {
-    pwdChars += '°^!"§$%&/()=?`´\}][{²³€|<>-.,;:*+_';
+    pwdChars += '°^!"§$%&\/()=?`´\\}][{²³€|<>-.,;:*+_';
   }
   let randPassword = Array(length).fill(pwdChars).map(function(x) {
     return x[Math.floor(Math.random() * x.length)]
