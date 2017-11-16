@@ -39,7 +39,6 @@ document.getElementById('new').addEventListener('click', (ev) => {
   ev.preventDefault();
   var params = getParams();
   document.getElementById('pw').value = randPassword(params.length, params.special);
-  saveOptions(params);
 });
 
 document.getElementById('copy').addEventListener('click', (ev) => {
@@ -47,9 +46,12 @@ document.getElementById('copy').addEventListener('click', (ev) => {
   copypasstoclippboard();
 });
 
-document.getElementById('directcopy').addEventListener('change', (ev) => {
-  saveOptions(getParams());
-});
+var list = document.getElementsByTagName('input');
+for (var i = 0; i < list.length; i++) {
+  list[i].addEventListener('change', (ev) => {
+    saveOptions(getParams());
+  });
+}
 
 loadOptions().then((options) => {
   document.getElementById('length').value = options.length;
