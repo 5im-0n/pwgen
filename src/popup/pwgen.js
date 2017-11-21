@@ -39,7 +39,7 @@ function copypasstoclippboard() {
     var copyText = document.getElementById('pw');
     copyText.select();
     document.execCommand('copy');
-  }, 100);
+  }, 200);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
