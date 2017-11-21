@@ -1,5 +1,5 @@
 function randPassword(length, includeSpecial) {
-  let pwdChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+  let pwdChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
   if (includeSpecial) {
     pwdChars += '°^!"§$%&/()=?`´\\}][{²³€|<>-.,;:*+_µ@~';
   }
