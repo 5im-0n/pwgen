@@ -2,6 +2,10 @@ body {
   margin: 15px;
 }
 
+div {
+  margin-top: 5px;
+}
+
 input[type="number"] {
   -moz-appearance: none;
   color: var(--in-content-text-color);
