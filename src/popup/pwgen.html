@@ -2,30 +2,42 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="chrome://global/skin/global.css" type="text/css" />
+    <link rel="stylesheet" href="chrome://global/skin/in-content/common.css" type="text/css" />
+    <link rel="stylesheet" href="chrome://mozapps/content/extensions/extensions.css" type="text/css" />
+    <link rel="stylesheet" href="resource://gre-resources/forms.css" type="text/css" />
+
     <link rel="stylesheet" href="pwgen.css"/>
   </head>
 
 <body>
   <form>
+
     <div>
-      <label for"length">length</label>
-      <input type="number" id="length" value="14" min="0" name="length">
+      <label for"length">length <input type="number" id="length" value="14" min="0" name="length"></label>
     </div>
+
     <div>
-      <label for"special">include special chars</label>
       <input type="checkbox" id="special" checked="checked" name="special">
+      <label for"special">include special chars</label>
     </div>
+
     <div>
-      <label for"pw">your password</label>
+      <label for="pw">your password</label>
       <input type="text" id="pw" name="pw">
     </div>
+
     <div>
-      <button id="copy">copy to clipboard</button><button id="new">give me an other one</button>
+      <button id="copy" style="margin-left: 0;">copy to clipboard</button><button id="new">give me an other one</button>
     </div>
+
+    <hr>
+
     <div>
-      <label for"directcopy">direct copy</label>
       <input type="checkbox" id="directcopy" name="directcopy" title="next time when i click the button, copy the new password immediately to the clipboard">
+      <label for="directcopy">direct copy</label>
     </div>
+
   </form>
   <script src="pwgen.js"></script>
 </body>

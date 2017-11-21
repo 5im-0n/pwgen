@@ -1,4 +1,22 @@
 body {
-	cursor: default;
-	font: caption;
-  }
+  margin: 15px;
+}
+
+input[type="number"] {
+  -moz-appearance: none;
+  color: var(--in-content-text-color);
+  border: 1px solid var(--in-content-box-border-color);
+  -moz-border-top-colors: none !important;
+  -moz-border-right-colors: none !important;
+  -moz-border-bottom-colors: none !important;
+  -moz-border-left-colors: none !important;
+  border-radius: 2px;
+  background-color: var(--in-content-box-background);
+
+  font-family: inherit;
+  font-size: inherit;
+  padding: 5px 10px;
+}
+input[type="checkbox"] {
+  margin-bottom: -7px;
+}
