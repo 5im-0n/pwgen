@@ -35,36 +35,43 @@ function saveOptions(options) {
 }
 
 function copypasstoclippboard() {
-  var copyText = document.getElementById('pw');
-  copyText.select();
-  document.execCommand('copy');
+  setTimeout(function() {
+    var copyText = document.getElementById('pw');
+    copyText.select();
+    document.execCommand('copy');
+  }, 100);
 }
 
-document.getElementById('new').addEventListener('click', (ev) => {
-  ev.preventDefault();
-  var params = getParams();
-  document.getElementById('pw').value = randPassword(params.length, params.special);
-});
+document.addEventListener('DOMContentLoaded', function() {
 
-document.getElementById('copy').addEventListener('click', (ev) => {
-  ev.preventDefault();
-  copypasstoclippboard();
-});
-
-var list = document.getElementsByTagName('input');
-for (var i = 0; i < list.length; i++) {
-  list[i].addEventListener('change', (ev) => {
-    saveOptions(getParams());
+  document.getElementById('new').addEventListener('click', (ev) => {
+    ev.preventDefault();
+    var params = getParams();
+    document.getElementById('pw').value = randPassword(params.length, params.special);
   });
-}
 
-loadOptions().then((options) => {
-  document.getElementById('length').value = options.length;
-  document.getElementById('special').checked = options.special;
-  document.getElementById('directcopy').checked = options.directcopy;
-  document.getElementById('pw').value = randPassword(getParams().length, getParams().special);
-
-  if (options.directcopy) {
+  document.getElementById('copy').addEventListener('click', (ev) => {
+    ev.preventDefault();
     copypasstoclippboard();
+  });
+
+  var list = document.getElementsByTagName('input');
+  for (var i = 0; i < list.length; i++) {
+    list[i].addEventListener('change', (ev) => {
+      saveOptions(getParams());
+    });
   }
+
+  loadOptions().then((options) => {
+    document.getElementById('length').value = options.length;
+    document.getElementById('special').checked = options.special;
+    document.getElementById('directcopy').checked = options.directcopy;
+    document.getElementById('pw').value = randPassword(getParams().length, getParams().special);
+
+    if (options.directcopy) {
+      copypasstoclippboard();
+    }
+  });
+
 });
+
