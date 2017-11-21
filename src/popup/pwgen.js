@@ -3,10 +3,15 @@ function randPassword(length, includeSpecial) {
   if (includeSpecial) {
     pwdChars += '°^!"§$%&/()=?`´\\}][{²³€|<>-.,;:*+_µ@~';
   }
-  let randPassword = Array(length).fill(pwdChars).map(function(x) {
-    return x[Math.floor(Math.random() * x.length)]
-  }).join('');
-  return randPassword;
+
+  let randValues = new Uint32Array(length);
+  let randPwd = '';
+  window.crypto.getRandomValues(randValues);
+  for(i=0; i<length; i++)
+  {
+    randPwd += pwdChars[randValues[i] % pwdChars.length];
+  }
+  return randPwd;
 }
 
 function getParams() {
