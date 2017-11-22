@@ -21,6 +21,18 @@ input[type="number"] {
   font-size: inherit;
   padding: 5px 10px;
 }
+
 input[type="checkbox"] {
   margin-bottom: -7px;
+}
+
+#copied {
+  /*height: 100%;*/
+  width: 100%;
+  background-color: #FFF8DC;
+  position: absolute;
+  margin: -25px;
+  margin-top: -5px;
+  padding: 5px;
+  text-align: center;
 }

@@ -34,12 +34,27 @@ function saveOptions(options) {
   return browser.storage.local.set(options);
 }
 
-function copypasstoclippboard() {
+function copypasstoclippboard(cb) {
   setTimeout(function() {
     var copyText = document.getElementById('pw');
     copyText.select();
     document.execCommand('copy');
+    if (typeof(cb) === 'function') {
+      cb();
+    }
   }, 200);
+}
+
+function fade(element) {
+  var op = 1;  // initial opacity
+  var timer = setInterval(function () {
+    if (op <= 0.1) {
+        clearInterval(timer);
+        element.style.display = 'none';
+    }
+    element.style.opacity = op;
+    op -= op * 0.1;
+  }, 50);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -69,9 +84,12 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('pw').value = randPassword(getParams().length, getParams().special);
 
     if (options.directcopy) {
-      copypasstoclippboard();
+      copypasstoclippboard(() => {
+        let copied = document.getElementById('copied');
+        copied.style.display = 'block';
+        fade(copied)
+      });
     }
   });
 
 });
-
