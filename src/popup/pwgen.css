@@ -26,7 +26,7 @@ input[type="checkbox"] {
   margin-bottom: -7px;
 }
 
-#copied {
+.copied {
   /*height: 100%;*/
   width: 100%;
   background-color: #FFF8DC;
@@ -35,4 +35,16 @@ input[type="checkbox"] {
   margin-top: -5px;
   padding: 5px;
   text-align: center;
+}
+
+.fadein {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 1s linear;
+}
+
+.fadeout {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 1s, opacity 1s linear;
 }

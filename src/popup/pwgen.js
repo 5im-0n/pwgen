@@ -42,21 +42,22 @@ function copypasstoclippboard(cb) {
     if (typeof(cb) === 'function') {
       cb();
     }
-    fade(document.getElementById('copied'));
+    fade(document.getElementsByClassName('copied')[0]);
   }, 200);
 }
 
 function fade(element) {
-  element.style.display = 'block';
-  var op = 1;  // initial opacity
-  var timer = setInterval(function () {
-    if (op <= 0.1) {
-        clearInterval(timer);
-        element.style.display = 'none';
-    }
-    element.style.opacity = op;
-    op -= op * 0.1;
-  }, 50);
+  var clone = element.cloneNode(true);
+  clone.style.display = 'block';
+  element.parentNode.insertBefore(clone, element.nextSibling);
+
+  setTimeout(() => {
+    clone.className += ' fadeout';
+  }, 500);
+
+  setTimeout(() => {
+    clone.remove();
+  }, 1100);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
