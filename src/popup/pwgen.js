@@ -57,7 +57,7 @@ function fade(element) {
 
   setTimeout(() => {
     clone.remove();
-  }, 1100);
+  }, 1600);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
