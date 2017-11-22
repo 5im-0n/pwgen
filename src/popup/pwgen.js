@@ -42,10 +42,12 @@ function copypasstoclippboard(cb) {
     if (typeof(cb) === 'function') {
       cb();
     }
+    fade(document.getElementById('copied'));
   }, 200);
 }
 
 function fade(element) {
+  element.style.display = 'block';
   var op = 1;  // initial opacity
   var timer = setInterval(function () {
     if (op <= 0.1) {
@@ -84,11 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('pw').value = randPassword(getParams().length, getParams().special);
 
     if (options.directcopy) {
-      copypasstoclippboard(() => {
-        let copied = document.getElementById('copied');
-        copied.style.display = 'block';
-        fade(copied)
-      });
+      copypasstoclippboard();
     }
   });
 
