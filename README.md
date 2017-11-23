@@ -4,7 +4,7 @@
 
 A firefox addon that generates a password and copies it to the clipboard
 
-![pwgen reloaded in action](img/screenshot.png)
+![pwgen reloaded in action](img/cast.gif)
 
 ## install
 
