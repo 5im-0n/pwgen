@@ -15,7 +15,7 @@ function randPassword(length, includeSpecial) {
 }
 
 function generateLength() {
-  return Math.floor(Math.random() * (1 + getParams().lengthMax - getParams().lengthMin)) + getParams().lengthMin;
+  return Math.floor(Math.random() * (getParams().lengthMax - getParams().lengthMin + 1) + getParams().lengthMin);
 }
 
 function getParams() {
