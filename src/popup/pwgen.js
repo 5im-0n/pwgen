@@ -14,9 +14,14 @@ function randPassword(length, includeSpecial) {
   return randPwd;
 }
 
+function generateLength() {
+  return Math.floor(Math.random() * getParams().lengthMax - getParams().lengthMin + 1) + getParams().lengthMin;
+}
+
 function getParams() {
   return {
-    length: parseInt(document.getElementById('length').value),
+    lengthMin: parseInt(document.getElementById('length-min').value),
+    lengthMax: parseInt(document.getElementById('length-max').value),
     special: document.getElementById('special').checked,
     directcopy: document.getElementById('directcopy').checked
   }
@@ -24,7 +29,8 @@ function getParams() {
 
 function loadOptions() {
   return browser.storage.local.get({
-    length: 14,
+    lengthMin: 14,
+    lengthMax: 17,
     special: true,
     directcopy: false
   });
@@ -65,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('new').addEventListener('click', (ev) => {
     ev.preventDefault();
     var params = getParams();
-    document.getElementById('pw').value = randPassword(params.length, params.special);
+    document.getElementById('pw').value = randPassword(generateLength(), params.special);
   });
 
   document.getElementById('copy').addEventListener('click', (ev) => {
@@ -81,10 +87,11 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   loadOptions().then((options) => {
-    document.getElementById('length').value = options.length;
+    document.getElementById('length-min').value = options.lengthMin;
+    document.getElementById('length-max').value = options.lengthMax;
     document.getElementById('special').checked = options.special;
     document.getElementById('directcopy').checked = options.directcopy;
-    document.getElementById('pw').value = randPassword(getParams().length, getParams().special);
+    document.getElementById('pw').value = randPassword(generateLength(), getParams().special);
 
     if (options.directcopy) {
       copypasstoclippboard();
