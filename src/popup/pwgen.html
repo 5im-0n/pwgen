@@ -10,35 +10,33 @@
   </head>
 
 <body>
-  <div class="copied" style="display: none;">password copied to clipboard</div>
+  <div class="copied" style="display: none;">Password copied to clipboard</div>
 
   <form>
-
     <div>
-      <label>length</label>
-      <label for="length-min">min <input type="number" id="length-min" value="14" min="0" name="length-min" style="width: 50px;"></label>
-      <label for="length-max">max <input type="number" id="length-max" value="18" min="0" name="length-max" style="width: 50px;"></label>
-    </div>
-
-    <div>
-      <input type="checkbox" id="special" checked="checked" name="special">
-      <label for="special">include special chars</label>
-    </div>
-
-    <div>
-      <label for="pw">your password</label>
       <input type="text" id="pw" name="pw">
     </div>
 
     <div>
-      <button id="copy" style="margin-left: 0;">copy to clipboard</button><button id="new">give me an other one</button>
+      <label>Length: </label>
+      <label for="length-min">min.</label> <input type="number" id="length-min" value="14" min="0" name="length-min">
+      <label for="length-max">max.</label> <input type="number" id="length-max" value="18" min="0" name="length-max">
+    </div>
+
+    <div>
+      <input type="checkbox" id="special" checked="checked" name="special">
+      <label for="special">Include special characters</label>
+    </div>
+
+    <div>
+      <button id="copy">Copy to clipboard</button><button id="new">Generate another</button>
     </div>
 
     <hr>
 
     <div>
-      <input type="checkbox" id="directcopy" name="directcopy" title="next time when i click the button, copy the new password immediately to the clipboard">
-      <label for="directcopy">direct copy</label>
+      <input type="checkbox" id="directcopy" name="directcopy" title="The next time the toolbar button is clicked, the password is copied to the clipboard directly">
+      <label for="directcopy">Copy directly</label>
     </div>
 
   </form>

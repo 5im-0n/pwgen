@@ -20,10 +20,25 @@ input[type="number"] {
   font-family: inherit;
   font-size: inherit;
   padding: 5px 10px;
+
+  width: 50px;
+}
+
+#length-min {
+  margin-right: 10px;
 }
 
 input[type="checkbox"] {
   margin-bottom: -7px;
+}
+
+#pw {
+  border: 2px black solid;
+  width: 250px;
+}
+
+#copy {
+  margin-left: 0px;
 }
 
 .copied {
