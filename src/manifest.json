@@ -2,7 +2,7 @@
   "description": "Just a toolbar button that generates a password and copies it to your clipboard.",
   "manifest_version": 2,
   "name": "pwgen reloaded",
-  "version": "1.1.17",
+  "version": "1.1.18",
   "homepage_url": "https://github.com/S2-/pwgen",
   "icons": {
     "48": "icons/lock-48.png"
