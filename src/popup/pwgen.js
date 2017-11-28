@@ -1,7 +1,13 @@
-function randPassword(length, includeSpecial) {
+function randPassword(length, includeSpecial, exclude) {
   let pwdChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
   if (includeSpecial) {
     pwdChars += '°^!"§$%&/()=?`´\\}][{²³€|<>-.,;:*+_µ@~';
+  }
+
+  if (exclude) {
+    exclude.split('').forEach(c => {
+      pwdChars = pwdChars.split(c).join('');
+    });
   }
 
   let randValues = new Uint32Array(length);
@@ -23,6 +29,7 @@ function getParams() {
     lengthMin: parseInt(document.getElementById('length-min').value),
     lengthMax: parseInt(document.getElementById('length-max').value),
     special: document.getElementById('special').checked,
+    exclude: document.getElementById('exclude').value,
     directcopy: document.getElementById('directcopy').checked
   }
 }
@@ -32,6 +39,7 @@ function loadOptions() {
     lengthMin: 14,
     lengthMax: 17,
     special: true,
+    exclude: 'iIl|10o8B3Evu![]{}',
     directcopy: false
   });
 }
@@ -71,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('new').addEventListener('click', (ev) => {
     ev.preventDefault();
     var params = getParams();
-    document.getElementById('pw').value = randPassword(generateLength(), params.special);
+    document.getElementById('pw').value = randPassword(generateLength(), params.special, params.exclude);
   });
 
   document.getElementById('copy').addEventListener('click', (ev) => {
@@ -90,8 +98,9 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('length-min').value = options.lengthMin;
     document.getElementById('length-max').value = options.lengthMax;
     document.getElementById('special').checked = options.special;
+    document.getElementById('exclude').value = options.exclude;
     document.getElementById('directcopy').checked = options.directcopy;
-    document.getElementById('pw').value = randPassword(generateLength(), getParams().special);
+    document.getElementById('pw').value = randPassword(generateLength(), getParams().special, getParams().exclude);
 
     if (options.directcopy) {
       copypasstoclippboard();
