@@ -1,7 +1,7 @@
 function randPassword(length, includeSpecial, exclude) {
   let pwdChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
   if (includeSpecial) {
-    pwdChars += '°^!"§$%&/()=?`´\\}][{²³€|<>-.,;:*+_µ@~';
+    pwdChars += '!"#$%&\'()*+,-./:;<=>?`[\\~]^_@{|}';
   }
 
   if (exclude) {
