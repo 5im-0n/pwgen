@@ -4,6 +4,11 @@
   "name": "pwgen reloaded",
   "version": "1.1.22",
   "homepage_url": "https://github.com/S2-/pwgen",
+  "applications": {
+    "gecko": {
+      "id": "{46b66c4d-605f-4f4d-8689-20b44b45656c}"
+    }
+  },
   "icons": {
     "48": "icons/lock-48.png"
   },
