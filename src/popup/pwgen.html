@@ -1,50 +1,50 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="chrome://global/skin/global.css" type="text/css" />
-    <link rel="stylesheet" href="chrome://global/skin/in-content/common.css" type="text/css" />
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="chrome://global/skin/global.css" type="text/css" />
+		<link rel="stylesheet" href="chrome://global/skin/in-content/common.css" type="text/css" />
 
-    <link rel="stylesheet" href="pwgen.css"/>
-  </head>
+		<link rel="stylesheet" href="pwgen.css"/>
+	</head>
 
 <body>
-  <form>
-    <div>
-      <input type="text" id="pw" name="pw">
-    </div>
+	<form>
+		<div>
+			<input type="text" id="pw" name="pw">
+		</div>
 
-    <div>
-      <label>Length: </label>
-      <label for="length-min">min.</label> <input type="number" id="length-min" value="14" min="0" name="length-min">
-      <label for="length-max">max.</label> <input type="number" id="length-max" value="18" min="0" name="length-max">
-    </div>
+		<div>
+			<label>Length: </label>
+			<label for="length-min">min.</label> <input type="number" id="length-min" value="14" min="0" name="length-min">
+			<label for="length-max">max.</label> <input type="number" id="length-max" value="18" min="0" name="length-max">
+		</div>
 
-    <div>
-      <input type="checkbox" id="special" checked="checked" name="special">
-      <label for="special">Include special characters</label>
-    </div>
+		<div>
+			<input type="checkbox" id="special" checked="checked" name="special">
+			<label for="special">Include special characters</label>
+		</div>
 
-    <div>
-      <label for="exclude">Exclude: </label>
-      <input type="text" id="exclude" name="exclude">
-    </div>
+		<div>
+			<label for="exclude">Exclude: </label>
+			<input type="text" id="exclude" name="exclude">
+		</div>
 
-    <div>
-      <button id="copy">Copy to clipboard</button><button id="new">Generate another</button>
-    </div>
+		<div>
+			<button id="copy">Copy to clipboard</button><button id="new">Generate another</button>
+		</div>
 
-    <hr>
+		<hr>
 
-    <div>
-      <input type="checkbox" id="directcopy" name="directcopy" title="The next time the toolbar button is clicked, the password is copied to the clipboard directly">
-      <label for="directcopy">Copy directly</label>
-      <div class="copied" style="display: none;">Password copied to clipboard</div>
-    </div>
+		<div>
+			<input type="checkbox" id="directcopy" name="directcopy" title="The next time the toolbar button is clicked, the password is copied to the clipboard directly">
+			<label for="directcopy">Copy directly</label>
+			<div class="copied" style="display: none;">Password copied to clipboard</div>
+		</div>
 
-  </form>
-  <script src="pwgen.js"></script>
+	</form>
+	<script src="pwgen.js"></script>
 </body>
 
 </html>
