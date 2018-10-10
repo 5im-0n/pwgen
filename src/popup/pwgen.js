@@ -80,6 +80,10 @@ document.addEventListener('DOMContentLoaded', function() {
     ev.preventDefault();
     var params = getParams();
     document.getElementById('pw').value = randPassword(generateLength(), params.special, params.exclude);
+
+    if (params.directcopy) {
+      copypasstoclippboard();
+    }
   });
 
   document.getElementById('copy').addEventListener('click', (ev) => {
